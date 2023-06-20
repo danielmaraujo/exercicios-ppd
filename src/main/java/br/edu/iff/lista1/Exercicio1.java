@@ -1,13 +1,13 @@
 //Grupo: Gabriel Silveira, Daniel Machado, Lívia Pessanha, Matheus Rocha
-package br.edu.iff;
+package br.edu.iff.lista1;
 
 import java.util.Random;
 
 public class Exercicio1 {
-    private static int linhas = 3;
-    private static int colunas = 4;
+    private static final int linhas = 3;
+    private static final int colunas = 4;
 
-    private static int[][] matriz = new int[linhas][colunas];
+    private static final int[][] matriz = new int[linhas][colunas];
 
     private static void preencherMatriz(){
         Random random = new Random();
@@ -57,11 +57,7 @@ public class Exercicio1 {
     }
 
     private static boolean verificarCondicao(){
-        if (menorValor_SomatorioColunas() <= maiorValor_ProdutorioLinhas()){
-            return true;
-        }else{
-            return false;
-        }
+        return menorValor_SomatorioColunas() <= maiorValor_ProdutorioLinhas();
     }
 
     private static void imprimirMatriz(){
@@ -69,7 +65,7 @@ public class Exercicio1 {
             for (int j = 0; j < colunas; j++) {
                 System.out.print(matriz[i][j] + " ");
             }
-            System.out.println("");
+            System.out.println();
         }
     }
 
