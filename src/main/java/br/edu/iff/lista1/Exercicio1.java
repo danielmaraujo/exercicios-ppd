@@ -7,9 +7,8 @@ public class Exercicio1 {
     private static final int linhas = 3;
     private static final int colunas = 4;
 
-    private static final int[][] matriz = new int[linhas][colunas];
-
-    private static void preencherMatriz(){
+    private static int[][] gerarMatriz(){
+        int[][] matriz = new int[linhas][colunas];
         Random random = new Random();
 
         for (int i = 0; i < linhas; i++) {
@@ -17,9 +16,11 @@ public class Exercicio1 {
                 matriz[i][j] = random.nextInt(1, 20);
             }
         }
+
+        return matriz;
     }
 
-    private static int menorValor_SomatorioColunas(){
+    private static int menorValor_SomatorioColunas(int[][] matriz){
         int menorValor = -1;
 
         for (int j = 0; j < colunas; j++) {
@@ -37,7 +38,7 @@ public class Exercicio1 {
         return menorValor;
     }
 
-    private static int maiorValor_ProdutorioLinhas(){
+    private static int maiorValor_ProdutorioLinhas(int[][] matriz){
         int maiorValor = 0;
 
 
@@ -56,11 +57,11 @@ public class Exercicio1 {
         return maiorValor;
     }
 
-    private static boolean verificarCondicao(){
-        return menorValor_SomatorioColunas() <= maiorValor_ProdutorioLinhas();
+    private static boolean verificarCondicao(int[][] matriz){
+        return menorValor_SomatorioColunas(matriz) <= maiorValor_ProdutorioLinhas(matriz);
     }
 
-    private static void imprimirMatriz(){
+    private static void imprimirMatriz(int[][] matriz){
         for (int i = 0; i < linhas; i++) {
             for (int j = 0; j < colunas; j++) {
                 System.out.print(matriz[i][j] + " ");
@@ -70,10 +71,10 @@ public class Exercicio1 {
     }
 
     public static void main(String[] args) {
-        preencherMatriz();
-        imprimirMatriz();
+        int[][] matriz = gerarMatriz();
+        imprimirMatriz(matriz);
 
-        if(verificarCondicao()){
+        if(verificarCondicao(matriz)){
             System.out.println("Condicao Satisfeita");
         }else{
             System.out.println("Condicao Nao Satisfeita");
