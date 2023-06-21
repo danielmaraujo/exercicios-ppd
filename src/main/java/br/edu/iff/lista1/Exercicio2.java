@@ -56,7 +56,7 @@ public class Exercicio2 {
             {0, 0, 0, 1}
         };
 
-        return Arrays.deepEquals(matriz, identidade);
+        return Arrays.deepEquals(multiplicarMatriz(matriz, calcularTransposta(matriz)), identidade);
     }
 
     public static void main(String[] args) {
