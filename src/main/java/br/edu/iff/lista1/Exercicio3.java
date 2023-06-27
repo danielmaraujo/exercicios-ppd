@@ -1,3 +1,6 @@
+//Grupo: Gabriel Silveira, Daniel Machado, Lívia Pessanha, Matheus Rocha
+package br.edu.iff.lista1;
+
 import java.util.Scanner;
 
 public class Exercicio3 {
