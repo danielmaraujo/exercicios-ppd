@@ -47,11 +47,8 @@ public class Exercicio3 {
     }
 
     public static void main(String[] args) {
-// int[] vetor = new int[20];
-// preencherVetor(vetor);
-
-        int[] vetor = {1,1,2,2,1,1,2,2,1,1,2,2,1,1,2,2,1,1,2,2};
-
+        int[] vetor = new int[20];
+        preencherVetor(vetor);
         organizarVetor(vetor);
         imprimirVetor(vetor);
     }
