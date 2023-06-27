@@ -1,7 +1,6 @@
 //Grupo: Gabriel Silveira, Daniel Machado, Lívia Pessanha, Matheus Rocha
 package br.edu.iff.lista1;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class Exercicio2 {
