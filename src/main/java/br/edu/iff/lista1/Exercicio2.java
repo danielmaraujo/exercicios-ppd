@@ -49,14 +49,20 @@ public class Exercicio2 {
     }
 
     private static boolean checarOrtogonal(int[][] matriz){
-        int[][] identidade = {
-            {1, 0, 0, 0},
-            {0, 1, 0, 0},
-            {0, 0, 1, 0},
-            {0, 0, 0, 1}
-        };
+        for (int i = 0; i < ordem; i++) {
+            for (int j = 0; j < ordem; j++) {
 
-        return Arrays.deepEquals(multiplicarMatriz(matriz, calcularTransposta(matriz)), identidade);
+                if (i == j && matriz[i][j] != 1) {
+                    return false;
+                }
+
+                if (i != j && matriz[i][j] != 0) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     public static void main(String[] args) {
