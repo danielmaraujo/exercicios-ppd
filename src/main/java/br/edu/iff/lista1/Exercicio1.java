@@ -4,8 +4,8 @@ package br.edu.iff.lista1;
 import java.util.Random;
 
 public class Exercicio1 {
-    private static final int linhas = 3;
-    private static final int colunas = 4;
+    private static final int linhas = 4;
+    private static final int colunas = 5;
 
     private static int[][] gerarMatriz(){
         int[][] matriz = new int[linhas][colunas];
@@ -27,7 +27,7 @@ public class Exercicio1 {
             int somatorio = 0;
 
             for (int i = 0; i < linhas; i++) {
-                somatorio += matriz[i][j];
+                somatorio += Math.abs(matriz[i][j]);
             }
 
             if(somatorio < menorValor || menorValor == -1){
