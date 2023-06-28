@@ -14,17 +14,17 @@ public class Exercicio3 {
 
     private static void organizarVetor(int[] vetor) {
         for (int i = 0; i < vetor.length; i++) {
-            if (i % 2 == 0 && vetor[i] % 2 != 0) {
+            if (i % 2 == 0 && vetor[i] % 2 == 0) {
                 int j = i + 1;
-                while (j < vetor.length && vetor[j] % 2 != 0) {
+                while (j < vetor.length && vetor[j] % 2 == 0) {
                     j += 2;
                 }
                 if (j < vetor.length) {
                     trocarElementos(vetor, i, j);
                 }
-            } else if (i % 2 != 0 && vetor[i] % 2 == 0) {
+            } else if (i % 2 != 0 && vetor[i] % 2 != 0) {
                 int j = i + 1;
-                while (j < vetor.length && vetor[j] % 2 == 0) {
+                while (j < vetor.length && vetor[j] % 2 != 0) {
                     j += 2;
                 }
                 if (j < vetor.length) {
