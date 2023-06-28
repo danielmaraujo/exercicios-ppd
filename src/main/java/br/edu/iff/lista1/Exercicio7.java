@@ -1,3 +1,4 @@
+//Grupo: Gabriel Silveira, Daniel Machado, Lívia Pessanha, Matheus Rocha, Gabriel Fraga
 package br.edu.iff.lista1;
 
 import java.util.Random;
