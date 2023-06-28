@@ -12,8 +12,11 @@ public class Exercicio4 {
     }
 
     private static void ordenarVetor(int[] vetor) {
+        //Fixa uma posição
         for (int i = 0; i < vetor.length - 1; i++) {
+            //Itera os próximos valores
             for (int j = i + 1; j < vetor.length; j++) {
+                //Caso o valor seja maior que o valor na posição fixada inicialmente, troca os elementos.
                 if (vetor[i] < vetor[j]) {
                     trocarElementos(vetor, i ,j);
                 }
