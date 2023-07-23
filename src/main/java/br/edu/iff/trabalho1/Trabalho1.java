@@ -1,5 +1,5 @@
 //Grupo: Gabriel Silveira, Daniel Machado, Lívia Pessanha, Matheus Rocha, Gabriel Fraga
-package br.edu.iff.trabalho;
+package br.edu.iff.trabalho1;
 
 public class Trabalho1 {
     public static void main(String[] args) {
