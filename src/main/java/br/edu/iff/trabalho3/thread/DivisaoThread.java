@@ -16,7 +16,7 @@ public class DivisaoThread extends Thread{
         this.n = n;
         this.semaphore = semaphore;
 
-        t = new Random().nextInt(2) + 1;
+        t = new Random().nextInt(10) + 1;
     }
 
     @Override
