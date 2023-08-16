@@ -21,16 +21,35 @@ public class Main {
         System.out.print("Digite o valor de N (N ≥ 1): ");
         int N = scanner.nextInt();
 
-        Semaphore semaphore = new Semaphore(1, true);
+        Semaphore executionSemaphore = new Semaphore(1, true);
 
-        SomaThread soma = new SomaThread(a, b, N, semaphore);
-        SubtracaoThread subtracao = new SubtracaoThread(a, b, N, semaphore);
-        MultiplicacaoThread multiplicacao = new MultiplicacaoThread(a, b, N, semaphore);
-        DivisaoThread divisao = new DivisaoThread(a, b, N, semaphore);
+        SomaThread soma = new SomaThread(a, b, N, executionSemaphore);
+        SubtracaoThread subtracao = new SubtracaoThread(a, b, N, executionSemaphore);
+        MultiplicacaoThread multiplicacao = new MultiplicacaoThread(a, b, N, executionSemaphore);
+        DivisaoThread divisao = new DivisaoThread(a, b, N, executionSemaphore);
 
-        soma.start();
-        subtracao.start();
-        multiplicacao.start();
-        divisao.start();
+
+        Semaphore threadStartSemaphore = new Semaphore(1, true);
+
+        try {
+            threadStartSemaphore.acquire();
+            soma.start();
+            threadStartSemaphore.release();
+
+            threadStartSemaphore.acquire();
+            subtracao.start();
+            threadStartSemaphore.release();
+
+            threadStartSemaphore.acquire();
+            multiplicacao.start();
+            threadStartSemaphore.release();
+
+            threadStartSemaphore.acquire();
+            divisao.start();
+            threadStartSemaphore.release();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }

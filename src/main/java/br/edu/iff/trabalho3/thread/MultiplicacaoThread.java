@@ -16,7 +16,7 @@ public class MultiplicacaoThread extends Thread{
         this.n = n;
         this.semaphore = semaphore;
 
-        t = new Random().nextInt(10) + 1;
+        t = new Random().nextInt(2) + 1;
     }
 
     @Override
@@ -33,8 +33,8 @@ public class MultiplicacaoThread extends Thread{
     }
 
     private void multiplicacao() throws InterruptedException{
-        System.out.println("Eu sou a Thread MULTIPLICACAO (" + (a * b) + ") e vou dormir por " + t + " segundos!");
+        System.out.println("Eu sou a Thread MULTIPLICACAO e vou dormir por " + t + " segundos!");
         Thread.sleep(t * 1000);
-        System.out.println("Eu sou a Thread MULTIPLICACAO (" + (a * b) + "). Já se passaram " + t + " segundos, então terminei!");
+        System.out.println("Eu sou a Thread MULTIPLICACAO. Resultado: " + (a * b));
     }
 }

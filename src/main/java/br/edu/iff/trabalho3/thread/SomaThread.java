@@ -16,7 +16,7 @@ public class SomaThread extends Thread{
         this.n = n;
         this.semaphore = semaphore;
 
-        t = new Random().nextInt(10) + 1;
+        t = new Random().nextInt(2) + 1;
     }
 
     @Override
@@ -33,8 +33,8 @@ public class SomaThread extends Thread{
     }
 
     private void soma() throws InterruptedException{
-        System.out.println("Eu sou a Thread SOMA (" + (a + b) + ") e vou dormir por " + t + " segundos!");
+        System.out.println("Eu sou a Thread SOMA e vou dormir por " + t + " segundos!");
         Thread.sleep(t * 1000);
-        System.out.println("Eu sou a Thread SOMA (" + (a + b) + "). Já se passaram " + t + " segundos, então terminei!");
+        System.out.println("Eu sou a Thread SOMA. Resultado: " + (a + b));
     }
 }
