@@ -4,17 +4,19 @@ import java.util.Random;
 import java.util.concurrent.Semaphore;
 
 public class SomaThread extends Thread{
-    private Semaphore semaphore;
+    private Semaphore somaSemaphore;
+    private Semaphore subtracaoSemaphore;
     private Integer a;
     private Integer b;
     private Integer n;
     private Integer t;
 
-    public SomaThread(Integer a, Integer b, Integer n, Semaphore semaphore) {
+    public SomaThread(Integer a, Integer b, Integer n, Semaphore somaSemaphore, Semaphore subtracaoSemaphore) {
         this.a = a;
         this.b = b;
         this.n = n;
-        this.semaphore = semaphore;
+        this.somaSemaphore = somaSemaphore;
+        this.subtracaoSemaphore = subtracaoSemaphore;
 
         t = new Random().nextInt(10) + 1;
     }
@@ -23,9 +25,9 @@ public class SomaThread extends Thread{
     public void run() {
         for (int i = 0; i < n; i++) {
             try {
-                semaphore.acquire();
+                somaSemaphore.acquire();
                 soma();
-                semaphore.release();
+                subtracaoSemaphore.release();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

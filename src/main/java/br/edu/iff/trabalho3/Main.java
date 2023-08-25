@@ -21,35 +21,20 @@ public class Main {
         System.out.print("Digite o valor de N (N ≥ 1): ");
         int N = scanner.nextInt();
 
-        Semaphore executionSemaphore = new Semaphore(1, true);
+        Semaphore somaSemaphore = new Semaphore(1);
+        Semaphore subtracaoSemaphore = new Semaphore(0);
+        Semaphore multiplicacaoSemaphore = new Semaphore(0);
+        Semaphore divisaoSemaphore = new Semaphore(0);
 
-        SomaThread soma = new SomaThread(a, b, N, executionSemaphore);
-        SubtracaoThread subtracao = new SubtracaoThread(a, b, N, executionSemaphore);
-        MultiplicacaoThread multiplicacao = new MultiplicacaoThread(a, b, N, executionSemaphore);
-        DivisaoThread divisao = new DivisaoThread(a, b, N, executionSemaphore);
+        SomaThread soma = new SomaThread(a, b, N, somaSemaphore, subtracaoSemaphore);
+        SubtracaoThread subtracao = new SubtracaoThread(a, b, N, subtracaoSemaphore, multiplicacaoSemaphore);
+        MultiplicacaoThread multiplicacao = new MultiplicacaoThread(a, b, N, multiplicacaoSemaphore, divisaoSemaphore);
+        DivisaoThread divisao = new DivisaoThread(a, b, N, divisaoSemaphore, somaSemaphore);
 
-
-        Semaphore threadStartSemaphore = new Semaphore(1, true);
-
-        try {
-            threadStartSemaphore.acquire();
-            soma.start();
-            threadStartSemaphore.release();
-
-            threadStartSemaphore.acquire();
-            subtracao.start();
-            threadStartSemaphore.release();
-
-            threadStartSemaphore.acquire();
-            multiplicacao.start();
-            threadStartSemaphore.release();
-
-            threadStartSemaphore.acquire();
-            divisao.start();
-            threadStartSemaphore.release();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        subtracao.start();
+        soma.start();
+        multiplicacao.start();
+        divisao.start();
 
     }
 }
