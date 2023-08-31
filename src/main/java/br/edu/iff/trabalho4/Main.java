@@ -23,7 +23,6 @@ public class Main {
 
         try {
             xThread.join();
-            sumThread.join();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

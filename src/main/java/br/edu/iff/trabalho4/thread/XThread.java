@@ -1,7 +1,5 @@
 package br.edu.iff.trabalho4.thread;
 
-import br.edu.iff.trabalho4.Main;
-
 import java.util.concurrent.Semaphore;
 
 public class XThread extends Thread{
